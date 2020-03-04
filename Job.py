@@ -17,19 +17,19 @@ def binarySearch(job, start_index):
 	# https://en.wikipedia.org/wiki/Binary_search_algorithm
 
 	# Initialize 'lo' and 'hi' for Binary Search
-	lo = 0
-	hi = start_index - 1
+	left = 0
+	right = start_index - 1
 
 	# Perform binary Search iteratively
-	while lo <= hi:
-		mid = (lo + hi) // 2
+	while left <= right:
+		mid = (left + right) // 2
 		if job[mid].finish <= job[start_index].start:
 			if job[mid + 1].finish <= job[start_index].start:
-				lo = mid + 1
+				left = mid + 1
 			else:
 				return mid
 		else:
-			hi = mid - 1
+			right = mid - 1
 	return -1
 
 # The main function that returns the maximum possible
